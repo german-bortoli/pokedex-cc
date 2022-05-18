@@ -32,7 +32,7 @@ const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) =
           component="img"
           height="100"
           image={getPokemonImageUrl(pokemonItem.url)}
-          alt={pokemonItem.name}
+          alt={`pokemon ${pokemonItem.name}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
