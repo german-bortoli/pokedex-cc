@@ -62,3 +62,9 @@ const pokemons = [
 List.args = {
   pokemons,
 };
+
+export const EmptyList = Template.bind({});
+
+EmptyList.args = {
+  pokemons: [],
+};

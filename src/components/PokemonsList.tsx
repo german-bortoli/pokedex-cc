@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid } from '@mui/material';
+import { Alert, Grid } from '@mui/material';
 
 import { PokemonListItem, Pokemons } from '../types';
 
@@ -11,13 +11,22 @@ export interface PokemonsListProps {
   onViewPokemon?: (pokemonItem: PokemonListItem) => void;
 }
 
+// Renders a list of pokemons and check if there are any pokemons found.
 const PokemonsList = ({ pokemons, onViewPokemon }: PokemonsListProps) => {
+  // Handle a pokemon view event, should open the information of this pokemon.
   const handleViewPokemon = (pokemon: PokemonListItem) => {
     if (onViewPokemon) {
       onViewPokemon(pokemon);
     }
   };
 
+  // If there are no any pokemon found, show an alert.
+  if (pokemons.length === 0) {
+    return <Alert severity="info">No pokemons found</Alert>;
+  }
+
+  // Show a grid with pokemons
+  // @TODO: Research how to do this more responsive.
   return (
     <Grid container justifyContent="center" spacing={1}>
       {pokemons.map(pokemon => (

@@ -17,6 +17,7 @@ export interface PokemonListCardProps {
   onViewPokemon?: (pokemonItem: PokemonListItem) => void;
 }
 
+// Renders a pokemon from listing resource.
 const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) => {
   const handleViewPokemon = () => {
     if (onViewPokemon) {

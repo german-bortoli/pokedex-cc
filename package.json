@@ -28,10 +28,9 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint .",
-    "lint:check": "eslint \"{api,api-lib,hasura,src}/**/*.{js,ts,tsx}\"",
+    "lint:check": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "yarn lint:check --fix",
-    "prettier": "prettier \"{api,src}/**/*.{js,ts,tsx}\"",
-    "prettier:write": "prettier --write \"{api,src}/**/*.{js,ts,tsx}\""
+    "prettier": "prettier --write \"src/**/*.{js,ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [
