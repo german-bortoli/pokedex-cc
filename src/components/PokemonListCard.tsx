@@ -36,7 +36,7 @@ const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) =
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Name: {capitalize(pokemonItem.name)}
+            {capitalize(pokemonItem.name)}
           </Typography>
         </CardContent>
       </CardActionArea>
