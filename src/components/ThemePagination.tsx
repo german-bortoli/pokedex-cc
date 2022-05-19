@@ -6,7 +6,7 @@ import { styled } from '@mui/system';
 import {
   getLimitAndOffsetByPage,
   getNumberOfPagesByCount,
-  getPageByLimitAndOffset,
+  getPageByLimitAndOffset
 } from '../utils';
 
 export interface LimitOffsetType {
@@ -22,6 +22,7 @@ export interface PaginationProps {
 }
 
 const StyledPagination = styled(Pagination)`
+  margin-bottom: 40px;
   .MuiPagination-ul {
     padding: 20px 0 20px 0;
     justify-content: center;
@@ -32,7 +33,7 @@ const ThemePagination = ({
   count,
   limit,
   offset,
-  onPageChange,
+  onPageChange
 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(
     getPageByLimitAndOffset(limit, offset)
