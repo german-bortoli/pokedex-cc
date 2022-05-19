@@ -5,12 +5,19 @@ import {
   CardContent,
   CardMedia,
   CardActionArea,
-  Typography,
+  Typography
 } from '@mui/material';
 import Card from '@mui/material/Card';
+import { styled } from '@mui/material/styles';
 
 import { PokemonListItem } from '../types';
 import { getPokemonImageUrl } from '../utils';
+
+const StyledCardMedia = styled(CardMedia)`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
 
 export interface PokemonListCardProps {
   onViewPokemon?: (pokemonItem: PokemonListItem) => void;
@@ -26,16 +33,17 @@ const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) =
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 250 }}>
       <CardActionArea onClick={handleViewPokemon}>
-        <CardMedia
-          alt={`pokemon ${pokemonItem.name}`}
-          component="img"
-          height="100"
-          image={getPokemonImageUrl(pokemonItem.url)}
-        />
+        <StyledCardMedia>
+          <img
+            alt={`pokemon ${pokemonItem.name}`}
+            height="100"
+            src={getPokemonImageUrl(pokemonItem.url)}
+          />
+        </StyledCardMedia>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" align="center">
             {capitalize(pokemonItem.name)}
           </Typography>
         </CardContent>
