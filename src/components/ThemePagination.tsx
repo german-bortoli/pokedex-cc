@@ -1,11 +1,12 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import Pagination from '@mui/material/Pagination';
+import { styled } from '@mui/system';
 
 import {
   getLimitAndOffsetByPage,
   getNumberOfPagesByCount,
-  getPageByLimitAndOffset,
+  getPageByLimitAndOffset
 } from '../utils';
 
 export interface LimitOffsetType {
@@ -20,21 +21,48 @@ export interface PaginationProps {
   onPageChange: ({ limit, offset }: LimitOffsetType) => void;
 }
 
+const StyledPagination = styled(Pagination)`
+  margin-bottom: 40px;
+  .MuiPagination-ul {
+    padding: 20px 0 20px 0;
+    justify-content: center;
+  }
+`;
+
 const ThemePagination = ({
   count,
   limit,
   offset,
-  onPageChange,
+  onPageChange
 }: PaginationProps) => {
-  const currentPage = getPageByLimitAndOffset(limit, offset);
-  const totalPages = getNumberOfPagesByCount(count, limit);
+  const [currentPage, setCurrentPage] = useState(
+    getPageByLimitAndOffset(limit, offset)
+  );
+  const [totalPages, setTotalPages] = useState(
+    getNumberOfPagesByCount(count, limit)
+  );
+
+  useEffect(() => {
+    const tmpPages = getNumberOfPagesByCount(count, limit);
+    const tmpCurPage = getPageByLimitAndOffset(limit, offset);
+    setCurrentPage(tmpCurPage);
+    setTotalPages(tmpPages);
+  }, [currentPage, totalPages, limit, offset, count]);
 
   const handleChange = (event: ChangeEvent<unknown>, page: number) => {
-    onPageChange(getLimitAndOffsetByPage(page, limit));
+    const newRanges = getLimitAndOffsetByPage(page, limit);
+    setCurrentPage(getPageByLimitAndOffset(newRanges.limit, newRanges.offset));
+    setTotalPages(getNumberOfPagesByCount(count, newRanges.limit));
+    onPageChange(newRanges);
   };
 
   return (
-    <Pagination count={totalPages} onChange={handleChange} page={currentPage} />
+    <StyledPagination
+      size="large"
+      count={totalPages}
+      onChange={handleChange}
+      page={currentPage}
+    />
   );
 };
 

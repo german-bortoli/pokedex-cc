@@ -27,3 +27,10 @@ export const EmptyList = Template.bind({});
 EmptyList.args = {
   pokemons: [],
 };
+
+export const IsLoadingList = Template.bind({});
+
+IsLoadingList.args = {
+  pokemons: [],
+  isLoading: true,
+};
