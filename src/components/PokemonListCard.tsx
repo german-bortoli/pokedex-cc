@@ -8,7 +8,7 @@ import {
   Typography
 } from '@mui/material';
 import Card from '@mui/material/Card';
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/system';
 
 import { PokemonListItem } from '../types';
 import { getPokemonImageUrl } from '../utils';
