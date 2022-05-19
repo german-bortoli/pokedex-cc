@@ -1,8 +1,12 @@
 # Pokedex
 
-## Storybook
+Pokedex code challenge
 
-Main branch: https://main--6285308d68b6aa003a919dd0.chromatic.com/
+## Online Preview
+
+- Kanban Board: https://github.com/german-bortoli/pokedex-cc/projects/1
+- Pokedex Site: https://dreamy-pithivier-c367b9.netlify.app
+- Storybook: https://main--6285308d68b6aa003a919dd0.chromatic.com/
 
 > Note: If you want to see another storybook branch, please change `main` from the URL to the branch that you want.
 
