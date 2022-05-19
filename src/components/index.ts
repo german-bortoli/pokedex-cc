@@ -1,3 +1,3 @@
-export * from './Pagination';
+export * from './ThemePagination';
 export * from './PokemonsList';
 export * from './PokemonListCard';
