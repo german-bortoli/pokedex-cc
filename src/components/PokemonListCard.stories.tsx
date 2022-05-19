@@ -23,7 +23,6 @@ Card.args = {
   },
 };
 
-
 export const CardWithoutImage = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

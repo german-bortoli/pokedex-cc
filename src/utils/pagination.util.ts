@@ -1,4 +1,4 @@
-import { LimitOffsetType } from "../types";
+import { LimitOffsetType } from '../types';
 
 /**
  * Get Current page number by specific limit and offset
@@ -41,9 +41,9 @@ export const getLimitAndOffsetByPage = (
 
 /**
  * Get next page limit and offset by current page and limit
- * @param page 
- * @param limit 
- * @returns 
+ * @param page
+ * @param limit
+ * @returns
  */
 export const getNextPageLimitAndOffsetByPage = (
   page: number,
@@ -57,9 +57,9 @@ export const getNextPageLimitAndOffsetByPage = (
 
 /**
  * Get previous page limit and offset by current page and limit
- * @param page 
- * @param limit 
- * @returns 
+ * @param page
+ * @param limit
+ * @returns
  */
 export const getPreviousPageLimitAndOffsetByPage = (
   page: number,
