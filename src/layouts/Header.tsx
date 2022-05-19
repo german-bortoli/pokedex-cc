@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 
 const Header = () => {
   return (
-    <AppBar position="static" sx={{ bgcolor: "#FFDE00" }}>
+    <AppBar position="static" sx={{ bgcolor: '#FFDE00' }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{justifyContent: 'center'}}>
+        <Toolbar disableGutters sx={{ justifyContent: 'center' }}>
           <AdbIcon sx={{ mr: 1, color: '#3B4CCA' }} />
           <Typography
             variant="h6"
@@ -23,7 +23,7 @@ const Header = () => {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: '#3B4CCA',
-              textDecoration: 'none'
+              textDecoration: 'none',
             }}
           >
             POKEDEX

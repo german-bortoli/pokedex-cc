@@ -6,7 +6,7 @@ import MainLayout from './MainLayout';
 
 export default {
   title: 'Layout',
-  component: MainLayout
+  component: MainLayout,
 } as ComponentMeta<typeof MainLayout>;
 
 const Template: ComponentStory<typeof MainLayout> = args => <MainLayout {...args} />;
@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof MainLayout> = args => <MainLayout {...args
 export const MainLayoutWithHeader = Template.bind({});
 
 MainLayoutWithHeader.args = {
-  children: 'Hello wolrd'
+  children: 'Hello wolrd',
 };

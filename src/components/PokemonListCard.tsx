@@ -5,12 +5,12 @@ import {
   CardContent,
   CardMedia,
   CardActionArea,
-  Typography
+  Typography,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import { styled } from '@mui/system';
 
-import { PokemonListItem } from '../types';
+import { NamedResource } from '../types';
 import { getPokemonImageUrl } from '../utils';
 
 const StyledCardMedia = styled(CardMedia)`
@@ -20,8 +20,8 @@ const StyledCardMedia = styled(CardMedia)`
 `;
 
 export interface PokemonListCardProps {
-  onViewPokemon?: (pokemonItem: PokemonListItem) => void;
-  pokemonItem: PokemonListItem;
+  onViewPokemon?: (pokemonItem: NamedResource) => void;
+  pokemonItem: NamedResource;
 }
 
 // Renders a pokemon from listing resource.
