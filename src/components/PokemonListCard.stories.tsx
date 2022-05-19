@@ -22,3 +22,14 @@ Card.args = {
     url: 'https://pokeapi.co/api/v2/pokemon/1/',
   },
 };
+
+
+export const CardWithoutImage = Template.bind({});
+
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+CardWithoutImage.args = {
+  pokemonItem: {
+    name: 'default pokemon',
+    url: 'https://wrong.url.com',
+  },
+};
