@@ -117,11 +117,11 @@ const PokemonProfile = ({ name }: PokemonProfileProps) => {
         </TableContainer>
         <Grid container spacing="2">
           <Grid item xs={6} md={6}>
-            <Typography variant="h6">Moves</Typography>
+            <Typography variant="h6" sx={{marginBottom: '10px'}}>Moves</Typography>
             {MoreInfoItems(pokemon?.fetched_moves || [])}
           </Grid>
           <Grid item xs={6} md={6}>
-            <Typography variant="h6">Abilities</Typography>
+            <Typography variant="h6" sx={{marginBottom: '10px'}}>Abilities</Typography>
             {MoreInfoItems(pokemon?.fetched_abilities || [])}
           </Grid>
         </Grid>
