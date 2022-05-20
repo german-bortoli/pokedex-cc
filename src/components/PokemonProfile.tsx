@@ -6,6 +6,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
   Avatar,
   capitalize,
   Card,
@@ -15,6 +16,7 @@ import {
   Grid,
   IconButton,
   Paper,
+  Skeleton,
   Table,
   TableCell,
   TableContainer,
@@ -23,12 +25,13 @@ import {
 } from '@mui/material';
 import { red, grey } from '@mui/material/colors';
 
-import { usePokemonProfile } from '../hooks/usePokemonProfile';
-import { AvatarType, EffectEntry } from '../types';
+import { AvatarType, EffectEntry, PokemonResponse } from '../types';
 import { getPokemonImageUrl } from '../utils';
 
 export interface PokemonProfileProps {
-  name: string;
+  isError: boolean;
+  isLoading: boolean;
+  pokemon?: PokemonResponse;
 }
 
 const MoreInfoItems = (items: EffectEntry[]) => {
@@ -50,29 +53,54 @@ const MoreInfoItems = (items: EffectEntry[]) => {
   });
 };
 
-const PokemonProfile = ({ name }: PokemonProfileProps) => {
-  const { data: pokemon, isLoading, isError } = usePokemonProfile(name);
-
+const PokemonProfile = ({ isLoading, isError, pokemon }: PokemonProfileProps) => {
   if (isError) {
-    return <div>An error occurred while fetching the data</div>;
-  }
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <Card sx={{ backgroundColor: grey[200] }}>
+        <CardHeader
+          title={
+            <Typography variant="h4" color="text.primary">
+              Error
+            </Typography>
+          }
+          action={
+            <IconButton aria-label="close modal">
+              <CloseIcon />
+            </IconButton>
+          }
+        ></CardHeader>
+        <CardContent>
+          <Alert severity="error">An error occurred while fetching the data</Alert>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
     <Card sx={{ backgroundColor: grey[200] }}>
       <CardHeader
         avatar={
-          <Avatar
-            sx={{ backgroundColor: red[500] }}
-            src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.SMALL)}
-          />
+          isLoading ? (
+            <Skeleton animation="wave" variant="circular" width={40} height={40} />
+          ) : (
+            <Avatar
+              sx={{ backgroundColor: red[500] }}
+              src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.SMALL)}
+            />
+          )
         }
         title={
           <Typography variant="h4" color="text.primary">
-            {capitalize(pokemon?.name || '')}
+            {isLoading ? (
+              <Skeleton
+                animation="wave"
+                height={40}
+                width="100%"
+                style={{ marginBottom: 6 }}
+              />
+            ) : (
+              capitalize(pokemon?.name || '')
+            )}
           </Typography>
         }
         action={
@@ -84,11 +112,20 @@ const PokemonProfile = ({ name }: PokemonProfileProps) => {
       <CardMedia
         sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
       >
-        <img
-          height="200"
-          src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.BIG)}
-          alt={`pokemon ${pokemon?.name}`}
-        />
+        {isLoading ? (
+          <Skeleton
+            animation="wave"
+            variant="rectangular"
+            width={200}
+            height={200}
+          />
+        ) : (
+          <img
+            height="200"
+            src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.BIG)}
+            alt={`pokemon ${pokemon?.name}`}
+          />
+        )}
       </CardMedia>
       <CardContent>
         <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
@@ -97,31 +134,59 @@ const PokemonProfile = ({ name }: PokemonProfileProps) => {
               <TableCell>
                 <b>Height</b>
               </TableCell>
-              <TableCell>{pokemon?.height || 'Unknown'}</TableCell>
+              <TableCell>
+                {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
+              </TableCell>
               <TableCell>
                 <b>Weight</b>
               </TableCell>
-              <TableCell>{pokemon?.weight || 'Unknown'}</TableCell>
+              <TableCell>
+                {isLoading ? <Skeleton /> : pokemon?.weight || 'Unknown'}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
                 <b>Base Experience</b>
               </TableCell>
-              <TableCell>{pokemon?.base_experience || 'Unknown'}</TableCell>
+              <TableCell>
+                {isLoading ? <Skeleton /> : pokemon?.base_experience || 'Unknown'}
+              </TableCell>
               <TableCell>
                 <b>Order</b>
               </TableCell>
-              <TableCell>{pokemon?.order || 'Unknown'}</TableCell>
+              <TableCell>
+                {isLoading ? <Skeleton /> : pokemon?.order || 'Unknown'}
+              </TableCell>
             </TableRow>
           </Table>
         </TableContainer>
         <Grid container spacing="2">
           <Grid item xs={6} md={6}>
-            <Typography variant="h6" sx={{marginBottom: '10px'}}>Moves</Typography>
+            <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+              Moves
+            </Typography>
+            {isLoading && (
+              <Skeleton
+                animation="wave"
+                variant="rectangular"
+                width="80%"
+                height={100}
+              />
+            )}
             {MoreInfoItems(pokemon?.fetched_moves || [])}
           </Grid>
           <Grid item xs={6} md={6}>
-            <Typography variant="h6" sx={{marginBottom: '10px'}}>Abilities</Typography>
+            <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+              Abilities
+            </Typography>
+            {isLoading && (
+              <Skeleton
+                animation="wave"
+                variant="rectangular"
+                width="80%"
+                height={100}
+              />
+            )}
             {MoreInfoItems(pokemon?.fetched_abilities || [])}
           </Grid>
         </Grid>
