@@ -10,15 +10,18 @@ import '@fontsource/roboto/700.css';
 // Create a client
 const queryClient = new QueryClient();
 
+import { SnackBarProvider } from './contexts/SnackBarContext';
 import MainLayout from './layouts/MainLayout';
 import PokemonListPage from './pages/PokemonListPage';
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <MainLayout>
-        <PokemonListPage />
-      </MainLayout>
+      <SnackBarProvider>
+        <MainLayout>
+          <PokemonListPage />
+        </MainLayout>
+      </SnackBarProvider>
     </QueryClientProvider>
   );
 }
