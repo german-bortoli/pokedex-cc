@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { Container } from '@mui/system';
 
-
 import PokemonsList from '../components/PokemonsList';
 import ThemePagination from '../components/ThemePagination';
 import { useSnackBar } from '../contexts';
@@ -16,13 +15,13 @@ const PokemonListPage = () => {
   const { showSnackBar } = useSnackBar();
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const [offset, setOffset] = useState(0);
-  const { data, isLoading, error } = usePokemonList(offset, limit);
+  const { data, isLoading, isError } = usePokemonList(offset, limit);
 
   const onPageChange = ({ offset }: LimitOffsetType) => {
     setOffset(offset);
   };
 
-  if (error) {
+  if (isError) {
     showSnackBar('An error occurred while fetching the data', 'error');
   }
 

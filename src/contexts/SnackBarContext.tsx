@@ -23,7 +23,7 @@ const SnackBarProvider: FC<SnackBarContextProviderProps> = ({ children }) => {
   const [severity, setSeverity] = useState<AlertColor>('info');
   const [anchorOrigin, setAnchorOrigin] = useState<SnackbarOrigin>({
     vertical: 'bottom',
-    horizontal: 'center'
+    horizontal: 'center',
   });
 
   const showSnackBar = (

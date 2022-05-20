@@ -10,7 +10,7 @@ import {
 import Card from '@mui/material/Card';
 import { styled } from '@mui/system';
 
-import { NamedResource } from '../types';
+import { AvatarType, NamedResource } from '../types';
 import { getPokemonImageUrl } from '../utils';
 
 const StyledCardMedia = styled(CardMedia)`
@@ -39,7 +39,7 @@ const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) =
           <img
             alt={`pokemon ${pokemonItem.name}`}
             height="100"
-            src={getPokemonImageUrl(pokemonItem.url)}
+            src={getPokemonImageUrl(pokemonItem.url, AvatarType.BIG)}
           />
         </StyledCardMedia>
         <CardContent>
