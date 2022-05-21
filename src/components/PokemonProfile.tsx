@@ -21,7 +21,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography,
+  Typography
 } from '@mui/material';
 import { red, grey } from '@mui/material/colors';
 
@@ -31,7 +31,7 @@ import { getPokemonImageUrl } from '../utils';
 export interface PokemonProfileProps {
   isError: boolean;
   isLoading: boolean;
-  onClose?: () => void
+  onClose?: () => void;
   pokemon?: PokemonResponse;
 }
 
@@ -47,15 +47,23 @@ const MoreInfoItems = (items: EffectEntry[]) => {
           <Typography>{capitalize(item.name.replace(/-/gi, ' '))}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{item.description.effect}</Typography>
+          <Typography>
+            {item.description
+              ? item.description.effect
+              : 'none'}
+          </Typography>
         </AccordionDetails>
       </Accordion>
     );
   });
 };
 
-const PokemonProfile = ({ isLoading, isError, pokemon, onClose }: PokemonProfileProps) => {
-
+const PokemonProfile = ({
+  isLoading,
+  isError,
+  pokemon,
+  onClose
+}: PokemonProfileProps) => {
   const handleClose = () => {
     if (onClose) {
       onClose();
@@ -89,7 +97,13 @@ const PokemonProfile = ({ isLoading, isError, pokemon, onClose }: PokemonProfile
       <CardHeader
         avatar={
           isLoading ? (
-            <Skeleton data-testid="skeleton-loading1" animation="wave" variant="circular" width={40} height={40} />
+            <Skeleton
+              data-testid="skeleton-loading1"
+              animation="wave"
+              variant="circular"
+              width={40}
+              height={40}
+            />
           ) : (
             <Avatar
               sx={{ backgroundColor: red[500] }}

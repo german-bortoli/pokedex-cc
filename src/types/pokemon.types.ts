@@ -90,9 +90,9 @@ export type EffectEntryResponse = {
 
 export type EffectEntry = {
   name: string;
-  description: {
-    effect: string;
-    short_effect: string;
+  description?: {
+    effect?: string;
+    short_effect?: string;
     language: NamedResource;
   };
 };
