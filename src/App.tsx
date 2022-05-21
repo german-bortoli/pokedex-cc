@@ -8,9 +8,15 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 // Create a client
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
-import { SnackBarProvider } from './contexts/SnackBarContext';
+import { SnackBarProvider, PokemonProfileProvider } from './contexts';
 import MainLayout from './layouts/MainLayout';
 import PokemonListPage from './pages/PokemonListPage';
 
@@ -18,9 +24,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <SnackBarProvider>
-        <MainLayout>
-          <PokemonListPage />
-        </MainLayout>
+        <PokemonProfileProvider>
+          <MainLayout>
+            <PokemonListPage />
+          </MainLayout>
+        </PokemonProfileProvider>
       </SnackBarProvider>
     </QueryClientProvider>
   );

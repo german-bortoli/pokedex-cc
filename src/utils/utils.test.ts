@@ -1,3 +1,5 @@
+import { AvatarType } from '../types';
+
 import {
   getPageByLimitAndOffset,
   getNumberOfPagesByCount,
@@ -48,11 +50,18 @@ test('getPokemonIdFromUrl', () => {
   expect(getPokemonIdFromUrl('https://wrong.com')).toBe(undefined);
 });
 
-test('getPokemonImageUrl', () => {
-  expect(getPokemonImageUrl('https://pokeapi.co/api/v2/pokemon/1/')).toBe(
+test('getPokemonImageUrl ', () => {
+  expect(
+    getPokemonImageUrl('https://pokeapi.co/api/v2/pokemon/1/', AvatarType.BIG)
+  ).toBe(
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'
   );
-  expect(getPokemonImageUrl('https://wrong.com')).toBe(
+
+  expect(
+    getPokemonImageUrl('https://pokeapi.co/api/v2/pokemon/1/', AvatarType.SMALL)
+  ).toBe('https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/1.png');
+
+  expect(getPokemonImageUrl('https://wrong.com', AvatarType.BIG)).toBe(
     'https://via.placeholder.com/475x475'
   );
 });

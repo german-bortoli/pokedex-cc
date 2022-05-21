@@ -17,6 +17,41 @@ Pokedex code challenge
 - Use unit tests as much as possible.
 - Use react-hooks and contexts avoiding redux.
 
+## Pokemon Listing
+
+The screen to list pokemons has the following features:
+
+ - Pokemons per page selector.
+ - Pokemon Cards (name and avatar).
+ - Pagination.
+
+When clicking a pokemon card will trigger the pokemon profile modal box.
+
+### Pokemon Profile
+
+At the moment I'm fetching all the moves and abilities at the same time, ideally it would be nice to add some pagination fetching just a few of them and also add better condensed design.
+
+The profile shows the following information:
+
+ - Small avatar, pokemon name.
+ - Big avatar
+ - Height, Weight, Base Experience and Order.
+ - Moves and Abilities.
+
+> Dev: To implement this feature, it was used a react context, so you can open any pokemon profile by his name into the whole app, and a modal will popup with show up.
+> To use please import the `PokemonProfileProvider` into your App and use the code below.
+
+```tsx
+// Import the context
+import { usePokemonProfile } from '../contexts';
+
+// Get show pokemon profile hook,
+const { showPokemonProfile } = usePokemonProfile();
+
+// Show pokemon profile popup
+showPokemonProfile('charizard');
+```
+
 # Environment setup
 
 Clone this project and into the root path execute `npm install`

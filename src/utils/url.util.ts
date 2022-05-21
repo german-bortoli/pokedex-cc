@@ -1,3 +1,5 @@
+import { AvatarType } from '../types';
+
 /**
  * Get pokemon id from the profile URL
  * @param url
@@ -13,13 +15,25 @@ export const getPokemonIdFromUrl = (url: string): string => {
  * @param url
  * @returns
  */
-export const getPokemonImageUrl = (url: string): string => {
+export const getPokemonImageUrl = (
+  url: string | number,
+  type: AvatarType
+): string => {
   // @TODO: impelement invalid url fallback
-  const id = getPokemonIdFromUrl(url);
+  let id;
+  if (typeof url === 'string') {
+    id = getPokemonIdFromUrl(url);
+  } else {
+    id = url;
+  }
 
   if (!id) {
     return 'https://via.placeholder.com/475x475';
   }
 
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  if (type === AvatarType.BIG) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  }
+
+  return `https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/${id}.png`;
 };

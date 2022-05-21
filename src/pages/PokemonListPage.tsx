@@ -3,29 +3,33 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { Container } from '@mui/system';
 
-
 import PokemonsList from '../components/PokemonsList';
 import ThemePagination from '../components/ThemePagination';
-import { useSnackBar } from '../contexts';
-import { usePokemonList } from '../hooks';
-import { LimitOffsetType } from '../types';
+import { useSnackBar, usePokemonProfile } from '../contexts';
+import { useFetchPokemonList } from '../hooks';
+import { LimitOffsetType, NamedResource } from '../types';
 
 const DEFAULT_LIMIT = 20;
 
 const PokemonListPage = () => {
   const { showSnackBar } = useSnackBar();
+  const { showPokemonProfile } = usePokemonProfile();
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const [offset, setOffset] = useState(0);
-  const { data, isLoading, error } = usePokemonList(offset, limit);
+  const { data, isLoading, isError } = useFetchPokemonList(offset, limit);
 
   const onPageChange = ({ offset }: LimitOffsetType) => {
     setOffset(offset);
   };
 
-  if (error) {
+  if (isError) {
     showSnackBar('An error occurred while fetching the data', 'error');
   }
 
+  const handlePokemonView = ({ name }: NamedResource) => {
+    showPokemonProfile(name);
+  };
+  
   return (
     <Container>
       <Container>
@@ -38,7 +42,7 @@ const PokemonListPage = () => {
             onChange={e => setLimit(Number(e.target.value))}
             inputProps={{
               name: 'perPage',
-              id: 'uncontrolled-native',
+              id: 'uncontrolled-native'
             }}
           >
             <option value={10}>10</option>
@@ -51,7 +55,7 @@ const PokemonListPage = () => {
         </FormControl>
       </Container>
       <Container>
-        <PokemonsList pokemons={data?.pokemons || []} isLoading={isLoading} />
+        <PokemonsList pokemons={data?.pokemons || []} isLoading={isLoading} onViewPokemon={handlePokemonView}/>
         <ThemePagination
           count={data?.count || 0}
           limit={limit}
