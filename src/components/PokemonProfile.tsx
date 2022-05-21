@@ -151,7 +151,7 @@ const PokemonProfile = ({
       </CardMedia>
       <CardContent>
         <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableRow>
               <TableCell>
                 <b>Height</b>
@@ -183,7 +183,7 @@ const PokemonProfile = ({
           </Table>
         </TableContainer>
         <Grid container spacing="2">
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <Typography variant="h6" sx={{ marginBottom: '10px' }}>
               Moves
             </Typography>
