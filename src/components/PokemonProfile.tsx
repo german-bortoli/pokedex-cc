@@ -31,6 +31,7 @@ import { getPokemonImageUrl } from '../utils';
 export interface PokemonProfileProps {
   isError: boolean;
   isLoading: boolean;
+  onClose?: () => void
   pokemon?: PokemonResponse;
 }
 
@@ -53,10 +54,17 @@ const MoreInfoItems = (items: EffectEntry[]) => {
   });
 };
 
-const PokemonProfile = ({ isLoading, isError, pokemon }: PokemonProfileProps) => {
+const PokemonProfile = ({ isLoading, isError, pokemon, onClose }: PokemonProfileProps) => {
+
+  const handleClose = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
+
   if (isError) {
     return (
-      <Card sx={{ backgroundColor: grey[200] }}>
+      <Card sx={{ backgroundColor: grey[200] }} data-testid="profile-error-card">
         <CardHeader
           title={
             <Typography variant="h4" color="text.primary">
@@ -64,7 +72,7 @@ const PokemonProfile = ({ isLoading, isError, pokemon }: PokemonProfileProps) =>
             </Typography>
           }
           action={
-            <IconButton aria-label="close modal">
+            <IconButton aria-label="close modal" onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           }
@@ -81,7 +89,7 @@ const PokemonProfile = ({ isLoading, isError, pokemon }: PokemonProfileProps) =>
       <CardHeader
         avatar={
           isLoading ? (
-            <Skeleton animation="wave" variant="circular" width={40} height={40} />
+            <Skeleton data-testid="skeleton-loading1" animation="wave" variant="circular" width={40} height={40} />
           ) : (
             <Avatar
               sx={{ backgroundColor: red[500] }}
@@ -104,7 +112,7 @@ const PokemonProfile = ({ isLoading, isError, pokemon }: PokemonProfileProps) =>
           </Typography>
         }
         action={
-          <IconButton aria-label="close modal">
+          <IconButton aria-label="close modal" onClick={handleClose}>
             <CloseIcon />
           </IconButton>
         }

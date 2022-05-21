@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, FC } from 'react';
 
+import { ThemeDialog, ThemeDialogContent } from '../components';
 import PokemonProfile from '../components/PokemonProfile';
 import { useFetchPokemonProfile } from '../hooks';
 
@@ -15,12 +16,37 @@ interface PokemonProfileContextProviderProps {
 
 type PokemonProfileProps = {
   name: string;
+  onClose: () => void;
 };
 
-const PokemonProfileElement = ({ name }: PokemonProfileProps) => {
+const PokemonProfileElement = ({ name, onClose }: PokemonProfileProps) => {
   const { data: pokemon, isLoading, isError } = useFetchPokemonProfile(name);
+  const [open, setOpen] = useState(true);
+
+  const handleClose = () => {
+    onClose();
+  };
+
+  if (!name) {
+    setOpen(false);
+  }
+
   return (
-    <PokemonProfile pokemon={pokemon} isLoading={isLoading} isError={isError} />
+    <ThemeDialog
+      aria-labelledby="pokemon-profile-title"
+      open={open}
+      fullWidth
+      maxWidth="lg"
+    >
+      <ThemeDialogContent>
+        <PokemonProfile
+          isError={isError}
+          isLoading={isLoading}
+          onClose={handleClose}
+          pokemon={pokemon}
+        />
+      </ThemeDialogContent>
+    </ThemeDialog>
   );
 };
 
@@ -35,7 +61,7 @@ const PokemonProfileProvider: FC<PokemonProfileContextProviderProps> = ({
 
   let profile = null;
   if (name) {
-    profile = <PokemonProfileElement name={name} />;
+    profile = <PokemonProfileElement name={name} onClose={() => setName('')} />;
   }
 
   return (

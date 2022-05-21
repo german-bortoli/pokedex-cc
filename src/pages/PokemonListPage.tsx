@@ -5,16 +5,15 @@ import { Container } from '@mui/system';
 
 import PokemonsList from '../components/PokemonsList';
 import ThemePagination from '../components/ThemePagination';
-import { useSnackBar } from '../contexts';
-// import { useFetchPokemonProfile } from '../contexts/PokemonProfileContext';
+import { useSnackBar, usePokemonProfile } from '../contexts';
 import { useFetchPokemonList } from '../hooks';
-import { LimitOffsetType } from '../types';
+import { LimitOffsetType, NamedResource } from '../types';
 
 const DEFAULT_LIMIT = 20;
 
 const PokemonListPage = () => {
   const { showSnackBar } = useSnackBar();
-  // const { showPokemonProfile } = useFetchPokemonProfile();
+  const { showPokemonProfile } = usePokemonProfile();
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const [offset, setOffset] = useState(0);
   const { data, isLoading, isError } = useFetchPokemonList(offset, limit);
@@ -27,6 +26,10 @@ const PokemonListPage = () => {
     showSnackBar('An error occurred while fetching the data', 'error');
   }
 
+  const handlePokemonView = ({ name }: NamedResource) => {
+    showPokemonProfile(name);
+  };
+  
   return (
     <Container>
       <Container>
@@ -52,7 +55,7 @@ const PokemonListPage = () => {
         </FormControl>
       </Container>
       <Container>
-        <PokemonsList pokemons={data?.pokemons || []} isLoading={isLoading} />
+        <PokemonsList pokemons={data?.pokemons || []} isLoading={isLoading} onViewPokemon={handlePokemonView}/>
         <ThemePagination
           count={data?.count || 0}
           limit={limit}
