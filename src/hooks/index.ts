@@ -1,1 +1,2 @@
-export * from './usePokemonList';
+export * from './useFetchPokemonList';
+export * from './useFetchPokemonProfile';

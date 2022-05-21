@@ -6,7 +6,7 @@ import {
   getPokemonResourceFromName,
 } from '../services';
 
-export const usePokemonProfile = (name: string) => {
+export const useFetchPokemonProfile = (name: string) => {
   return useQuery(['pokemonProfile', name], async () => {
     const pokemon = await getPokemonResourceFromName(name);
 

@@ -6,16 +6,18 @@ import { Container } from '@mui/system';
 import PokemonsList from '../components/PokemonsList';
 import ThemePagination from '../components/ThemePagination';
 import { useSnackBar } from '../contexts';
-import { usePokemonList } from '../hooks';
+// import { useFetchPokemonProfile } from '../contexts/PokemonProfileContext';
+import { useFetchPokemonList } from '../hooks';
 import { LimitOffsetType } from '../types';
 
 const DEFAULT_LIMIT = 20;
 
 const PokemonListPage = () => {
   const { showSnackBar } = useSnackBar();
+  // const { showPokemonProfile } = useFetchPokemonProfile();
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const [offset, setOffset] = useState(0);
-  const { data, isLoading, isError } = usePokemonList(offset, limit);
+  const { data, isLoading, isError } = useFetchPokemonList(offset, limit);
 
   const onPageChange = ({ offset }: LimitOffsetType) => {
     setOffset(offset);
@@ -37,7 +39,7 @@ const PokemonListPage = () => {
             onChange={e => setLimit(Number(e.target.value))}
             inputProps={{
               name: 'perPage',
-              id: 'uncontrolled-native',
+              id: 'uncontrolled-native'
             }}
           >
             <option value={10}>10</option>
