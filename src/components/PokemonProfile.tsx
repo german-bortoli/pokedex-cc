@@ -106,6 +106,7 @@ const PokemonProfile = ({
             />
           ) : (
             <Avatar
+              alt={`pokemon avatar ${pokemon?.name}`}
               sx={{ backgroundColor: red[500] }}
               src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.SMALL)}
             />
@@ -184,7 +185,7 @@ const PokemonProfile = ({
         </TableContainer>
         <Grid container spacing="2">
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+            <Typography variant="h5" sx={{ marginBottom: '10px' }}>
               Moves
             </Typography>
             {isLoading && (
@@ -198,7 +199,7 @@ const PokemonProfile = ({
             {MoreInfoItems(pokemon?.fetched_moves || [])}
           </Grid>
           <Grid item xs={6} md={6}>
-            <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+            <Typography variant="h5" sx={{ marginBottom: '10px' }}>
               Abilities
             </Typography>
             {isLoading && (
