@@ -16,6 +16,7 @@ Pokedex code challenge
 - Storybooks with chromatic to test and review graphic changes.
 - Use unit tests as much as possible.
 - Use react-hooks and contexts avoiding redux.
+- Be a11y (accessiblity) compliant.
 
 ## Pokemon Listing
 
