@@ -2,9 +2,8 @@ import React from 'react';
 
 import { ComponentMeta } from '@storybook/react';
 
+import ThemePagination from '../components/ThemePagination';
 import { LimitOffsetType } from '../types';
-
-import ThemePagination from './ThemePagination';
 
 export default {
   title: 'Components/Pagination',
