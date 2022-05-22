@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ComponentMeta } from '@storybook/react';
 
-import Header from './Header';
+import Header from '../layouts/Header';
 
 export default {
-  title: 'Layout',
+  title: 'Layout/Header',
   component: Header,
 } as ComponentMeta<typeof Header>;
 

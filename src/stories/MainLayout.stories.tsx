@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import MainLayout from './MainLayout';
+import MainLayout from '../layouts/MainLayout';
 
 export default {
-  title: 'Layout',
+  title: 'Layout/MainApplication',
   component: MainLayout,
 } as ComponentMeta<typeof MainLayout>;
 
