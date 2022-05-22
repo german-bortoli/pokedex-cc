@@ -8,14 +8,14 @@ import {
   ThemeDialogContent,
   ThemeDialogTitle,
   ThemeDialogActions
-} from './ThemeDialog';
+} from '../components/ThemeDialog';
 
 export default {
   title: 'Components/Dialog',
   component: ThemeDialog
 } as ComponentMeta<typeof ThemeDialog>;
 
-export function CustomizedDialogs() {
+export function DialogWithActions() {
   const [open, setOpen] = React.useState(true);
 
   const handleClickOpen = () => {

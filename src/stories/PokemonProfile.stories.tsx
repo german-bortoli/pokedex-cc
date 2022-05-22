@@ -2,9 +2,8 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import PokemonProfile from '../components/PokemonProfile';
 import { pokemon } from '../fixtures/pokemonProfile';
-
-import PokemonProfile from './PokemonProfile';
 
 export default {
   title: 'Components/Pokemons/Profile',

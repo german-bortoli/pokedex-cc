@@ -38,7 +38,7 @@ const PokemonProfileElement = ({ name, onClose }: PokemonProfileProps) => {
       fullWidth
       maxWidth="lg"
     >
-      <ThemeDialogContent>
+      <ThemeDialogContent sx={{padding: 0}}>
         <PokemonProfile
           isError={isError}
           isLoading={isLoading}

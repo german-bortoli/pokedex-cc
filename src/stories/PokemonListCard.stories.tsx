@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import PokemonListCard from './PokemonListCard';
+import PokemonListCard from '../components/PokemonListCard';
 
 export default {
   title: 'Components/Pokemons/Card',

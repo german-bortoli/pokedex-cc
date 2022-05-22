@@ -2,9 +2,8 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import PokemonsList from '../components/PokemonsList';
 import { pokemonsFixture } from '../fixtures/pokemons';
-
-import PokemonsList from './PokemonsList';
 
 export default {
   title: 'Components/Pokemons/List',
@@ -15,22 +14,22 @@ const Template: ComponentStory<typeof PokemonsList> = args => (
   <PokemonsList {...args} />
 );
 
-export const ListWithPokemons = Template.bind({});
+export const List = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ListWithPokemons.args = {
+List.args = {
   pokemons: pokemonsFixture,
 };
 
-export const EmptyList = Template.bind({});
+export const Empty = Template.bind({});
 
-EmptyList.args = {
+Empty.args = {
   pokemons: [],
 };
 
-export const IsLoadingList = Template.bind({});
+export const Loading = Template.bind({});
 
-IsLoadingList.args = {
+Loading.args = {
   pokemons: [],
   isLoading: true,
 };

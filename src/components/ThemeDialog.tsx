@@ -9,18 +9,16 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
 const ThemeDialog = styled(Dialog)`
-  // @TODO: Add styling here
+    //@TODO: Add custom styles
 `;
 
-const ThemeDialogContent = styled(DialogContent)`
-  padding: 0;
-`;
+const ThemeDialogContent = styled(DialogContent)(({ theme }) => ({
+      padding: theme.spacing(2),
+  }));
 
-const ThemeDialogActions = styled(DialogActions)`
-  & .MuiDialogActions-root {
-    // @TODO: Add some style here
-  }
-`;
+const ThemeDialogActions = styled(DialogActions)(({ theme }) => ({
+    padding: theme.spacing(1),
+}));
 
 export interface DialogTitleProps {
   id: string;
