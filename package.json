@@ -34,7 +34,7 @@
     "lint": "eslint .",
     "lint:check": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "yarn lint:check --fix",
-    "prettier": "prettier --write \"src/**/*.{js,ts,tsx}\""
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [
