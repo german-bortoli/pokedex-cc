@@ -6,6 +6,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import 'react-dropzone-uploader/dist/styles.css';
 
 // Create a client
 const queryClient = new QueryClient({

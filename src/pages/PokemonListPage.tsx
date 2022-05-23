@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { FormControl, InputLabel, NativeSelect } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { Button, Fab, FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { Container } from '@mui/system';
 
 import PokemonsList from '../components/PokemonsList';
@@ -42,7 +43,7 @@ const PokemonListPage = () => {
             onChange={e => setLimit(Number(e.target.value))}
             inputProps={{
               name: 'perPage',
-              id: 'uncontrolled-native',
+              id: 'uncontrolled-native'
             }}
           >
             <option value={10}>10</option>
@@ -52,6 +53,9 @@ const PokemonListPage = () => {
             <option value={50}>50</option>
             <option value={100}>100</option>
           </NativeSelect>
+          <Button>
+            <AddIcon></AddIcon>New Pokemon
+          </Button>
         </FormControl>
       </Container>
       <Container>
@@ -67,7 +71,20 @@ const PokemonListPage = () => {
           offset={offset}
           onPageChange={onPageChange}
         />
+        
       </Container>
+      
+      <Fab
+        color="primary"
+        sx={{
+          position: 'fixed',
+          right: 16,
+          bottom: 16,
+        }}
+      >
+        <AddIcon />
+      </Fab>
+      
     </Container>
   );
 };

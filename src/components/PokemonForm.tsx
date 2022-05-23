@@ -8,6 +8,7 @@ import { NamedResource, PokemonInput } from '../types';
 import HeldItemsAutocomplete from './PokemonForm/HeldItemsAutocomplete';
 import NamedResourceAutocomplete from './PokemonForm/NamedResourceAutocomplete';
 import ThemeTextField from './ThemeTextField';
+import PokemonImageUploader from './PokemonForm/PokemonImageUploader';
 
 const StyledForm = styled('form')`
   // @TODO: Add form styles here.
@@ -161,6 +162,9 @@ const PokemonForm = ({
           onChange={item => handleChange(item, 'pokemonTypes')}
           resources={pokemonTypes.resources}
         />
+      </StyledWrapper>
+      <StyledWrapper>
+          <PokemonImageUploader />
       </StyledWrapper>
       <Button
         type="submit"
