@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof HeldItemsAutocomplete> = args => (
 
 export const ItemsAutocomplete = Template.bind({});
 ItemsAutocomplete.args = {
-    resources: heldItems.results,
-    isMulti: true,
-    label: 'Pick items',
+  resources: heldItems.results,
+  isMulti: true,
+  label: 'Pick items',
 };

@@ -8,7 +8,7 @@ import {
   Skeleton,
   Alert,
   Avatar,
-  capitalize
+  capitalize,
 } from '@mui/material';
 
 import { NamedResource } from '../../types';
@@ -30,7 +30,7 @@ const NamedResourceAutocomplete = ({
   isLoading,
   isMulti,
   label,
-  onChange
+  onChange,
 }: NamedResourceAutocompleteProps) => {
   if (isLoading) {
     return <Skeleton variant="rectangular" height={50} />;
@@ -42,7 +42,8 @@ const NamedResourceAutocomplete = ({
     );
   }
 
-  const formatLabel = (option: NamedResource) => capitalize(option.name.replace(/-/gi, ' '));
+  const formatLabel = (option: NamedResource) =>
+    capitalize(option.name.replace(/-/gi, ' '));
 
   return (
     <Autocomplete
@@ -55,7 +56,11 @@ const NamedResourceAutocomplete = ({
       }}
       autoHighlight
       filterSelectedOptions={true}
-      filterOptions={x => x}
+      filterOptions={(x, a) => {
+        return x.filter(i =>
+          formatLabel(i).toLowerCase().includes(a.inputValue.toLowerCase())
+        );
+      }}
       getOptionLabel={option => formatLabel(option)}
       renderTags={(tagValue, getTagProps) =>
         tagValue.map((option, index) => (
@@ -91,7 +96,7 @@ const NamedResourceAutocomplete = ({
           label={label}
           inputProps={{
             ...params.inputProps,
-            autoComplete: 'new-password' // disable autocomplete and autofill
+            autoComplete: 'new-password', // disable autocomplete and autofill
           }}
         />
       )}

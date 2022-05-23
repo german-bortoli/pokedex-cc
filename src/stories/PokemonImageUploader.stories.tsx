@@ -6,7 +6,6 @@ import PokemonImageUploader from '../components/PokemonForm/PokemonImageUploader
 
 import 'react-dropzone-uploader/dist/styles.css';
 
-
 export default {
   title: 'Components/Pokemons/Uploader',
   component: PokemonImageUploader,

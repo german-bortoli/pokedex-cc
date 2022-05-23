@@ -7,8 +7,8 @@ import { NamedResource, PokemonInput } from '../types';
 
 import HeldItemsAutocomplete from './PokemonForm/HeldItemsAutocomplete';
 import NamedResourceAutocomplete from './PokemonForm/NamedResourceAutocomplete';
-import ThemeTextField from './ThemeTextField';
 import PokemonImageUploader from './PokemonForm/PokemonImageUploader';
+import ThemeTextField from './ThemeTextField';
 
 const StyledForm = styled('form')`
   // @TODO: Add form styles here.
@@ -20,12 +20,12 @@ const StyledRightInput = styled(ThemeTextField)(({ theme }) => ({
   marginLeft: theme.spacing(2),
 
   [theme.breakpoints.down('sm')]: {
-    marginLeft: 0
-  }
+    marginLeft: 0,
+  },
 }));
 
 const StyledWrapper = styled('div')(({ theme }) => ({
-  marginTop: theme.spacing(2)
+  marginTop: theme.spacing(2),
 }));
 
 export interface AutocompleteInputProps {
@@ -48,7 +48,7 @@ const PokemonForm = ({
   items,
   moves,
   onSubmit,
-  pokemonTypes
+  pokemonTypes,
 }: PokemonFormProps) => {
   const newPokemon = {
     name: '',
@@ -59,7 +59,7 @@ const PokemonForm = ({
     items: [],
     moves: [],
     types: [],
-    abilities: []
+    abilities: [],
   };
   const [pokemon, setPokemon] = React.useState<PokemonInput>(newPokemon);
 
@@ -164,7 +164,7 @@ const PokemonForm = ({
         />
       </StyledWrapper>
       <StyledWrapper>
-          <PokemonImageUploader />
+        <PokemonImageUploader />
       </StyledWrapper>
       <Button
         type="submit"

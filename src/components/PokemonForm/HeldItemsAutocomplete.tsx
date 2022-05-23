@@ -2,12 +2,14 @@ import React from 'react';
 
 import { getItemImageUrl } from '../../utils';
 
-import NamedResourceAutocomplete, { NamedResourceAutocompleteProps } from './NamedResourceAutocomplete';
+import NamedResourceAutocomplete, {
+  NamedResourceAutocompleteProps,
+} from './NamedResourceAutocomplete';
 
 const HeldItemsAutocomplete = (props: NamedResourceAutocompleteProps) => {
   return (
     <NamedResourceAutocomplete
-    avatarResolver={({ name }) => getItemImageUrl(name)}
+      avatarResolver={({ name }) => getItemImageUrl(name)}
       {...props}
     />
   );

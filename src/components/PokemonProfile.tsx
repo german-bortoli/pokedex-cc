@@ -144,6 +144,7 @@ const PokemonProfile = ({
           />
         ) : (
           <img
+            loading="lazy"
             height="200"
             src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.BIG)}
             alt={`pokemon ${pokemon?.name}`}

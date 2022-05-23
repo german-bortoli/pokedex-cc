@@ -24,6 +24,6 @@ export const moves: GenericResourceResponse = {
     { name: 'wing-attack', url: 'https://pokeapi.co/api/v2/move/17/' },
     { name: 'whirlwind', url: 'https://pokeapi.co/api/v2/move/18/' },
     { name: 'fly', url: 'https://pokeapi.co/api/v2/move/19/' },
-    { name: 'bind', url: 'https://pokeapi.co/api/v2/move/20/' }
-  ]
+    { name: 'bind', url: 'https://pokeapi.co/api/v2/move/20/' },
+  ],
 };

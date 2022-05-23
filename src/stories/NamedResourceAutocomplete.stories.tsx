@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof NamedResourceAutocomplete> = args => (
 
 export const MovesAutocomplete = Template.bind({});
 MovesAutocomplete.args = {
-    resources: moves.results,
-    isMulti: true,
-    label: 'Moves',
+  resources: moves.results,
+  isMulti: true,
+  label: 'Moves',
 };

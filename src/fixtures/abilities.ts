@@ -24,6 +24,6 @@ export const abilities: GenericResourceResponse = {
     { name: 'immunity', url: 'https://pokeapi.co/api/v2/ability/17/' },
     { name: 'flash-fire', url: 'https://pokeapi.co/api/v2/ability/18/' },
     { name: 'shield-dust', url: 'https://pokeapi.co/api/v2/ability/19/' },
-    { name: 'own-tempo', url: 'https://pokeapi.co/api/v2/ability/20/' }
-  ]
+    { name: 'own-tempo', url: 'https://pokeapi.co/api/v2/ability/20/' },
+  ],
 };

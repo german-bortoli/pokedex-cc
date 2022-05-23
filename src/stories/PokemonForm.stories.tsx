@@ -19,24 +19,24 @@ const Template: ComponentStory<typeof PokemonForm> = args => (
 
 export const Form = Template.bind({});
 Form.args = {
-    abilities: {
-        resources: abilities.results,
-        isError: false,
-        isLoading: false,
-    },
-    moves: {
-        resources: moves.results,
-        isError: false,
-        isLoading: false,
-    },
-    pokemonTypes: {
-        resources: pokemonTypes.results,
-        isError: false,
-        isLoading: false,
-    },
-    items: {
-        resources: heldItems.results,
-        isError: false,
-        isLoading: false,
-    },
+  abilities: {
+    resources: abilities.results,
+    isError: false,
+    isLoading: false,
+  },
+  moves: {
+    resources: moves.results,
+    isError: false,
+    isLoading: false,
+  },
+  pokemonTypes: {
+    resources: pokemonTypes.results,
+    isError: false,
+    isLoading: false,
+  },
+  items: {
+    resources: heldItems.results,
+    isError: false,
+    isLoading: false,
+  },
 };

@@ -38,15 +38,11 @@ export const getPokemonImageUrl = (
   return `https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/${id}.png`;
 };
 
-
-
 /**
  * Get the image of an item
  * @param url
  * @returns
  */
- export const getItemImageUrl = (
-  name: string
-): string => {
+export const getItemImageUrl = (name: string): string => {
   return `https://github.com/PokeAPI/sprites/raw/master/sprites/items/${name}.png`;
 };

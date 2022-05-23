@@ -19,6 +19,6 @@ export const heldItems: GenericResourceResponse = {
     { name: 'premier-ball', url: 'https://pokeapi.co/api/v2/item/12/' },
     { name: 'dusk-ball', url: 'https://pokeapi.co/api/v2/item/13/' },
     { name: 'heal-ball', url: 'https://pokeapi.co/api/v2/item/14/' },
-    { name: 'quick-ball', url: 'https://pokeapi.co/api/v2/item/15/' }
-  ]
+    { name: 'quick-ball', url: 'https://pokeapi.co/api/v2/item/15/' },
+  ],
 };

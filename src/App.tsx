@@ -17,7 +17,11 @@ const queryClient = new QueryClient({
   },
 });
 
-import { SnackBarProvider, PokemonProfileProvider } from './contexts';
+import {
+  SnackBarProvider,
+  PokemonFormProvider,
+  PokemonProfileProvider,
+} from './contexts';
 import MainLayout from './layouts/MainLayout';
 import PokemonListPage from './pages/PokemonListPage';
 
@@ -26,9 +30,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <SnackBarProvider>
         <PokemonProfileProvider>
-          <MainLayout>
-            <PokemonListPage />
-          </MainLayout>
+          <PokemonFormProvider>
+            <MainLayout>
+              <PokemonListPage />
+            </MainLayout>
+          </PokemonFormProvider>
         </PokemonProfileProvider>
       </SnackBarProvider>
     </QueryClientProvider>
