@@ -18,12 +18,12 @@ const StyledForm = styled('form')`
 const StyledRightInput = styled(ThemeTextField)(({ theme }) => ({
   marginLeft: theme.spacing(2),
 
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     marginLeft: 0
   }
 }));
 
-const StyledAutocompleteWrapper = styled('div')(({ theme }) => ({
+const StyledWrapper = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(2)
 }));
 
@@ -78,15 +78,15 @@ const PokemonForm = ({
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <div>
+      <StyledWrapper>
         <ThemeTextField
           variant="standard"
           name="name"
           label="Name"
           onChange={event => handleChange(event.target.value, 'name')}
         />
-      </div>
-      <div>
+      </StyledWrapper>
+      <StyledWrapper>
         <ThemeTextField
           variant="standard"
           name="order"
@@ -101,8 +101,8 @@ const PokemonForm = ({
           type="number"
           onChange={event => handleChange(event.target.value, 'base_experience')}
         />
-      </div>
-      <div>
+      </StyledWrapper>
+      <StyledWrapper>
         <ThemeTextField
           variant="standard"
           name="height"
@@ -117,9 +117,9 @@ const PokemonForm = ({
           type="number"
           onChange={event => handleChange(event.target.value, 'weight')}
         />
-      </div>
+      </StyledWrapper>
 
-      <StyledAutocompleteWrapper>
+      <StyledWrapper>
         <HeldItemsAutocomplete
           isError={items.isError}
           isLoading={items.isLoading}
@@ -128,9 +128,9 @@ const PokemonForm = ({
           onChange={item => handleChange(item, 'items')}
           resources={items.resources}
         />
-      </StyledAutocompleteWrapper>
+      </StyledWrapper>
 
-      <StyledAutocompleteWrapper>
+      <StyledWrapper>
         <NamedResourceAutocomplete
           isError={abilities.isError}
           isLoading={abilities.isLoading}
@@ -139,9 +139,9 @@ const PokemonForm = ({
           onChange={item => handleChange(item, 'abilities')}
           resources={abilities.resources}
         />
-      </StyledAutocompleteWrapper>
+      </StyledWrapper>
 
-      <StyledAutocompleteWrapper>
+      <StyledWrapper>
         <NamedResourceAutocomplete
           isError={moves.isError}
           isLoading={moves.isLoading}
@@ -150,9 +150,9 @@ const PokemonForm = ({
           onChange={item => handleChange(item, 'moves')}
           resources={moves.resources}
         />
-      </StyledAutocompleteWrapper>
+      </StyledWrapper>
 
-      <StyledAutocompleteWrapper>
+      <StyledWrapper>
         <NamedResourceAutocomplete
           isError={pokemonTypes.isError}
           isLoading={pokemonTypes.isLoading}
@@ -161,7 +161,7 @@ const PokemonForm = ({
           onChange={item => handleChange(item, 'pokemonTypes')}
           resources={pokemonTypes.resources}
         />
-      </StyledAutocompleteWrapper>
+      </StyledWrapper>
       <Button
         type="submit"
         variant="contained"
