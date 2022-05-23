@@ -22,7 +22,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography
+  Typography,
 } from '@mui/material';
 import { red, grey } from '@mui/material/colors';
 
@@ -36,6 +36,7 @@ export interface PokemonProfileProps {
   pokemon?: PokemonResponse;
 }
 
+// @TODO: Move this into another component
 const MoreInfoItems = (items: EffectEntry[]) => {
   return items.map(item => {
     return (
@@ -61,7 +62,7 @@ const PokemonProfile = ({
   isLoading,
   isError,
   pokemon,
-  onClose
+  onClose,
 }: PokemonProfileProps) => {
   const handleClose = () => {
     if (onClose) {
@@ -150,6 +151,7 @@ const PokemonProfile = ({
         )}
       </CardMedia>
       <CardContent>
+        {/* @TODO Move the table into another component */}
         <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableBody>

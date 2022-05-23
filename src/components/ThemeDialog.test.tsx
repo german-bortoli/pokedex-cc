@@ -6,7 +6,7 @@ import {
   ThemeDialog,
   ThemeDialogActions,
   ThemeDialogContent,
-  ThemeDialogTitle
+  ThemeDialogTitle,
 } from './ThemeDialog';
 
 test('it does not break', () => {

@@ -29,7 +29,7 @@ const PokemonListPage = () => {
   const handlePokemonView = ({ name }: NamedResource) => {
     showPokemonProfile(name);
   };
-  
+
   return (
     <Container>
       <Container>
@@ -42,7 +42,7 @@ const PokemonListPage = () => {
             onChange={e => setLimit(Number(e.target.value))}
             inputProps={{
               name: 'perPage',
-              id: 'uncontrolled-native'
+              id: 'uncontrolled-native',
             }}
           >
             <option value={10}>10</option>
@@ -55,7 +55,12 @@ const PokemonListPage = () => {
         </FormControl>
       </Container>
       <Container>
-        <PokemonsList pokemons={data?.pokemons || []} isLoading={isLoading} onViewPokemon={handlePokemonView}/>
+        <PokemonsList
+          isError={isError}
+          isLoading={isLoading}
+          onViewPokemon={handlePokemonView}
+          pokemons={data?.pokemons || []}
+        />
         <ThemePagination
           count={data?.count || 0}
           limit={limit}

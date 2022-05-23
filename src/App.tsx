@@ -11,9 +11,9 @@ import '@fontsource/roboto/700.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 });
 
 import { SnackBarProvider, PokemonProfileProvider } from './contexts';

@@ -9,15 +9,15 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
 const ThemeDialog = styled(Dialog)`
-    //@TODO: Add custom styles
+  //@TODO: Add custom styles
 `;
 
 const ThemeDialogContent = styled(DialogContent)(({ theme }) => ({
-      padding: theme.spacing(2),
-  }));
+  padding: theme.spacing(2),
+}));
 
 const ThemeDialogActions = styled(DialogActions)(({ theme }) => ({
-    padding: theme.spacing(1),
+  padding: theme.spacing(1),
 }));
 
 export interface DialogTitleProps {
@@ -41,7 +41,7 @@ const ThemeDialogTitle = (props: DialogTitleProps) => {
             position: 'absolute',
             right: 8,
             top: 8,
-            color: theme => theme.palette.grey[500]
+            color: theme => theme.palette.grey[500],
           }}
         >
           <CloseIcon />

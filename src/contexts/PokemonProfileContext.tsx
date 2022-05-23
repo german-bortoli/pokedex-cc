@@ -38,7 +38,7 @@ const PokemonProfileElement = ({ name, onClose }: PokemonProfileProps) => {
       fullWidth
       maxWidth="lg"
     >
-      <ThemeDialogContent sx={{padding: 0}}>
+      <ThemeDialogContent sx={{ padding: 0 }}>
         <PokemonProfile
           isError={isError}
           isLoading={isLoading}
@@ -51,7 +51,7 @@ const PokemonProfileElement = ({ name, onClose }: PokemonProfileProps) => {
 };
 
 const PokemonProfileProvider: FC<PokemonProfileContextProviderProps> = ({
-  children
+  children,
 }) => {
   const [name, setName] = useState('');
 
