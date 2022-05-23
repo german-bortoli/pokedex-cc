@@ -37,6 +37,7 @@ const PokemonListCard = ({ pokemonItem, onViewPokemon }: PokemonListCardProps) =
       <CardActionArea onClick={handleViewPokemon}>
         <StyledCardMedia>
           <img
+            loading="lazy"
             alt={`pokemon ${pokemonItem.name}`}
             height="100"
             src={getPokemonImageUrl(pokemonItem.url, AvatarType.BIG)}

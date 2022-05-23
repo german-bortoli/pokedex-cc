@@ -53,6 +53,17 @@ const { showPokemonProfile } = usePokemonProfile();
 showPokemonProfile('charizard');
 ```
 
+### Add Pokemon
+
+Created a react context to display a modal box with the following form:
+
+ - Name
+ - Height, Weight, Base Experience and Order.
+ - Abilitites, Moves, Types and Items (with images) as autocomplete and showing chips.
+ - Image dropzone.
+ 
+ When clicking the "Plus Icon" on the bottom-right corner from the app the modal box will appear.
+
 # Environment setup
 
 Clone this project and into the root path execute `npm install`

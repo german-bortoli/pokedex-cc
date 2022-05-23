@@ -7,19 +7,31 @@ import { NamedResource, Pokemons } from '../types';
 import PokemonListCard from './PokemonListCard';
 
 export interface PokemonsListProps {
+  isError?: boolean;
+  isLoading?: boolean;
   onViewPokemon?: (pokemonItem: NamedResource) => void;
   pokemons: Pokemons;
-  isLoading?: boolean;
 }
 
 // Renders a list of pokemons and check if there are any pokemons found.
-const PokemonsList = ({ pokemons, onViewPokemon, isLoading }: PokemonsListProps) => {
+const PokemonsList = ({
+  pokemons,
+  onViewPokemon,
+  isError,
+  isLoading,
+}: PokemonsListProps) => {
   // Handle a pokemon view event, should open the information of this pokemon.
   const handleViewPokemon = (pokemon: NamedResource) => {
     if (onViewPokemon) {
       onViewPokemon(pokemon);
     }
   };
+
+  if (isError) {
+    return (
+      <Alert severity="error">An error has occurred while fetching pokemons.</Alert>
+    );
+  }
 
   if (isLoading) {
     return (

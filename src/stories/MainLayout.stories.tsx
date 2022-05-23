@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MainLayout from '../layouts/MainLayout';
 
 export default {
-  title: 'Layout/MainApplication',
+  title: 'Layout',
   component: MainLayout,
 } as ComponentMeta<typeof MainLayout>;
 
@@ -15,4 +15,8 @@ export const MainLayoutWithHeader = Template.bind({});
 
 MainLayoutWithHeader.args = {
   children: 'Hello wolrd',
+};
+
+MainLayoutWithHeader.story = {
+  name: 'Layout',
 };

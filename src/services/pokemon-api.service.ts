@@ -4,6 +4,7 @@ import {
   Abilities,
   EffectEntry,
   EffectEntryResponse,
+  GenericResourceResponse,
   Move,
   PokemonListResponse,
   PokemonResponse,
@@ -23,6 +24,50 @@ export const getListPokemons = async (
     `/pokemon?limit=${limit || DEFAULT_POKEMON_LIMIT}&offset=${offset || 0}`
   );
   return { count: response.data.count, pokemons: response.data.results };
+};
+
+export const getListAbilities = async (
+  offset?: number,
+  limit?: number
+): Promise<GenericResourceResponse> => {
+  const response = await pokeApi.get(
+    `/ability?limit=${limit || 100000}&offset=${offset || 0}`
+  );
+
+  return response.data;
+};
+
+export const getListMoves = async (
+  offset?: number,
+  limit?: number
+): Promise<GenericResourceResponse> => {
+  const response = await pokeApi.get(
+    `/move?limit=${limit || 100000}&offset=${offset || 0}`
+  );
+
+  return response.data;
+};
+
+export const getListTypes = async (
+  offset?: number,
+  limit?: number
+): Promise<GenericResourceResponse> => {
+  const response = await pokeApi.get(
+    `/type?limit=${limit || 100000}&offset=${offset || 0}`
+  );
+
+  return response.data;
+};
+
+export const getListItems = async (
+  offset?: number,
+  limit?: number
+): Promise<GenericResourceResponse> => {
+  const response = await pokeApi.get(
+    `/item?limit=${limit || 100000}&offset=${offset || 0}`
+  );
+
+  return response.data;
 };
 
 export const getPokemonResourceFromName = async (

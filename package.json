@@ -19,6 +19,7 @@
     "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-dropzone-uploader": "^2.11.0",
     "react-query": "^3.39.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.6.4",
@@ -34,7 +35,8 @@
     "lint": "eslint .",
     "lint:check": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "yarn lint:check --fix",
-    "prettier": "prettier --write \"src/**/*.{js,ts,tsx}\""
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [

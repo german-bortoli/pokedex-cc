@@ -18,10 +18,11 @@ import {
   Paper,
   Skeleton,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
   TableRow,
-  Typography
+  Typography,
 } from '@mui/material';
 import { red, grey } from '@mui/material/colors';
 
@@ -35,6 +36,7 @@ export interface PokemonProfileProps {
   pokemon?: PokemonResponse;
 }
 
+// @TODO: Move this into another component
 const MoreInfoItems = (items: EffectEntry[]) => {
   return items.map(item => {
     return (
@@ -48,9 +50,7 @@ const MoreInfoItems = (items: EffectEntry[]) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {item.description
-              ? item.description.effect
-              : 'none'}
+            {item.description ? item.description.effect : 'none'}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -62,7 +62,7 @@ const PokemonProfile = ({
   isLoading,
   isError,
   pokemon,
-  onClose
+  onClose,
 }: PokemonProfileProps) => {
   const handleClose = () => {
     if (onClose) {
@@ -144,6 +144,7 @@ const PokemonProfile = ({
           />
         ) : (
           <img
+            loading="lazy"
             height="200"
             src={getPokemonImageUrl(pokemon?.id || 0, AvatarType.BIG)}
             alt={`pokemon ${pokemon?.name}`}
@@ -151,36 +152,39 @@ const PokemonProfile = ({
         )}
       </CardMedia>
       <CardContent>
+        {/* @TODO Move the table into another component */}
         <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
-            <TableRow>
-              <TableCell>
-                <b>Height</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
-              </TableCell>
-              <TableCell>
-                <b>Weight</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.weight || 'Unknown'}
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <b>Base Experience</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.base_experience || 'Unknown'}
-              </TableCell>
-              <TableCell>
-                <b>Order</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.order || 'Unknown'}
-              </TableCell>
-            </TableRow>
+            <TableBody>
+              <TableRow>
+                <TableCell>
+                  <b>Height</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
+                </TableCell>
+                <TableCell>
+                  <b>Weight</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.weight || 'Unknown'}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <b>Base Experience</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.base_experience || 'Unknown'}
+                </TableCell>
+                <TableCell>
+                  <b>Order</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.order || 'Unknown'}
+                </TableCell>
+              </TableRow>
+            </TableBody>
           </Table>
         </TableContainer>
         <Grid container spacing="2">

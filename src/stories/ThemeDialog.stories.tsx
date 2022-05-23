@@ -7,12 +7,12 @@ import {
   ThemeDialog,
   ThemeDialogContent,
   ThemeDialogTitle,
-  ThemeDialogActions
+  ThemeDialogActions,
 } from '../components/ThemeDialog';
 
 export default {
   title: 'Components/Dialog',
-  component: ThemeDialog
+  component: ThemeDialog,
 } as ComponentMeta<typeof ThemeDialog>;
 
 export function DialogWithActions() {
@@ -55,9 +55,7 @@ export function DialogWithActions() {
           </Typography>
         </ThemeDialogContent>
         <ThemeDialogActions>
-          <Button onClick={handleClose}>
-            Save changes
-          </Button>
+          <Button onClick={handleClose}>Save changes</Button>
         </ThemeDialogActions>
       </ThemeDialog>
     </div>
