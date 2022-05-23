@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import AddIcon from '@mui/icons-material/Add';
-import { Button, Fab, FormControl, InputLabel, NativeSelect } from '@mui/material';
+import { Fab, FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { Container } from '@mui/system';
 
 import PokemonsList from '../components/PokemonsList';
