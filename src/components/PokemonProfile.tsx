@@ -18,6 +18,7 @@ import {
   Paper,
   Skeleton,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
   TableRow,
@@ -48,9 +49,7 @@ const MoreInfoItems = (items: EffectEntry[]) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {item.description
-              ? item.description.effect
-              : 'none'}
+            {item.description ? item.description.effect : 'none'}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -153,34 +152,36 @@ const PokemonProfile = ({
       <CardContent>
         <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
-            <TableRow>
-              <TableCell>
-                <b>Height</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
-              </TableCell>
-              <TableCell>
-                <b>Weight</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.weight || 'Unknown'}
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <b>Base Experience</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.base_experience || 'Unknown'}
-              </TableCell>
-              <TableCell>
-                <b>Order</b>
-              </TableCell>
-              <TableCell>
-                {isLoading ? <Skeleton /> : pokemon?.order || 'Unknown'}
-              </TableCell>
-            </TableRow>
+            <TableBody>
+              <TableRow>
+                <TableCell>
+                  <b>Height</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
+                </TableCell>
+                <TableCell>
+                  <b>Weight</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.weight || 'Unknown'}
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <b>Base Experience</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.base_experience || 'Unknown'}
+                </TableCell>
+                <TableCell>
+                  <b>Order</b>
+                </TableCell>
+                <TableCell>
+                  {isLoading ? <Skeleton /> : pokemon?.order || 'Unknown'}
+                </TableCell>
+              </TableRow>
+            </TableBody>
           </Table>
         </TableContainer>
         <Grid container spacing="2">
