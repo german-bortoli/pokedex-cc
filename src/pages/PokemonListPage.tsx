@@ -54,9 +54,6 @@ const PokemonListPage = () => {
             <option value={50}>50</option>
             <option value={100}>100</option>
           </NativeSelect>
-          <Button>
-            <AddIcon></AddIcon>New Pokemon
-          </Button>
         </FormControl>
       </Container>
       <Container>
