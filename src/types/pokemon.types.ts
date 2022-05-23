@@ -28,6 +28,25 @@ export type PokemonListResponse = {
   count: number;
 };
 
+export type GenericResourceResponse = {
+  results: NamedResource[];
+  count: number;
+  next: string | null;
+  previous: string | null;
+}
+
+export interface PokemonInput {
+  name: string;
+  types: NamedResource[];
+  order: number,
+  base_experience: number,
+  height: number,
+  weight: number,
+  items: NamedResource[];
+  moves: NamedResource[];
+  abilities: NamedResource[];
+};
+
 export type Sprites = {
   back_default: Url;
   back_female: Url;
