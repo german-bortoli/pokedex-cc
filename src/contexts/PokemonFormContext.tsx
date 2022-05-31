@@ -42,7 +42,7 @@ const PokemonFormProvider: FC<PokemonFormContextProviderProps> = ({ children }) 
         maxWidth="md"
       >
         <ThemeDialogTitle id="add-pokemon-title" onClose={handleClose}>
-          Add Pokemon
+          Add Pokemon (Change)
         </ThemeDialogTitle>
         <ThemeDialogContent dividers>
           <PokemonForm
