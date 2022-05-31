@@ -158,7 +158,7 @@ const PokemonProfile = ({
             <TableBody>
               <TableRow>
                 <TableCell>
-                  <b>Height (change)</b>
+                  <b>Height</b>
                 </TableCell>
                 <TableCell>
                   {isLoading ? <Skeleton /> : pokemon?.height || 'Unknown'}
