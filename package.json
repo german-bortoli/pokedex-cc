@@ -75,7 +75,7 @@
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/node-logger": "^6.5.0",
     "@storybook/preset-create-react-app": "^4.1.0",
-    "@storybook/react": "^6.5.16",
+    "@storybook/react": "^10.1.11",
     "@storybook/testing-library": "^0.0.11",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "chromatic": "^6.5.4",
